@@ -1,30 +1,33 @@
 <template>
-    <div class="shop-container">
-        <div class="shop-filters">
-            <h1 class="shop-heading">Shop The Latest</h1>
-            <div><input class="search-input" name="search" type="text" placeholder="Search" /></div>
-            <div class="shop-by-dropdown">
-                <select>
-                    <option>Shop By</option>
-                </select>
+    <div>
+        <div class="shop-container">
+            <div class="shop-filters">
+                <h1 class="shop-heading">Shop The Latest</h1>
+                <div class="search-input-wrapper"><input class="search-input" name="search" type="text" placeholder="Search" /></div>
+                <div class="shop-by-dropdown">
+                    <select>
+                        <option>Shop By</option>
+                    </select>
+                </div>
+                <div class="sort-by-dropdown">
+                    <select>
+                        <option>Sort By</option>
+                    </select>
+                </div>
+                <div class="on-sale-wrapper toggle-button-wrapper">
+                    <label for="on-sale">On sale</label>
+                    <toggle-button v-model="fileterOnSale" color="#707070" switch-color="#FFFFFF" :sync="true" width="33.33" height="20" />
+                </div>
+                <div class="in-stock-wrapper toggle-button-wrapper">
+                    <label for="in-stock">In stock</label>
+                    <toggle-button v-model="filterInStock" color="#707070" switch-color="#FFFFFF" :sync="true" width="33.33" height="20" />
+                </div>
             </div>
-            <div class="sort-by-dropdown">
-                <select>
-                    <option>Sort By</option>
-                </select>
-            </div>
-            <div class="on-sale-wrapper">
-                <label for="on-sale">On sale</label>
-                <input id="on-sale" name="on-sale" type="checkbox" class="toggle" />
-            </div>
-            <div class="in-stock-wrapper">
-                <label for="in-stock">In stock</label>
-                <input id="in-stock" name="in-stock" type="checkbox" class="toggle" />
+            <div class="product-list">
+                <productCard v-for="product in products" :product="product" :key="product.id" />
             </div>
         </div>
-        <div class="product-list">
-            <productCard v-for="product in products" :product="product" :key="product.id" />
-        </div>
+        <footerComp />
     </div>
 </template>
 
@@ -37,13 +40,19 @@ import prod5 from '../assets/product-5.svg';
 import prod6 from '../assets/product-6.svg';
 
 import productCard from './productCard.vue';
+import footerComp from './footer.vue';
+
 export default {
     name: 'ShopPage',
     components: {
         productCard,
+        footerComp,
     },
+    method: {},
     data() {
         return {
+            fileterOnSale: false,
+            filterInStock: true,
             products: [
                 {
                     id: 'p1',
@@ -107,11 +116,11 @@ export default {
 
 <style scoped>
 .shop-container {
-    max-width: 1440px;
+    /* max-width: 1280px; */
     display: flex;
     gap: 2.25rem;
-    margin-inline: auto;
-    padding-inline: 6rem;
+    /* margin-inline: auto;
+    padding-inline: 1rem; */
 }
 .shop-filters {
     flex: 0 0 270px;
@@ -119,8 +128,8 @@ export default {
 .product-list {
     display: flex;
     flex-wrap: wrap;
-    flex: 1;
     gap: 1.25rem;
+    flex: 1;
 }
 .shop-heading {
     font-weight: 500;
@@ -140,13 +149,16 @@ select {
     outline: 0;
     border: 0;
     border-bottom: 1px solid #d8d8d8;
-    margin-bottom: 2.437rem;
+    padding-bottom: 11px;
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
-    position: relative;
 }
-.search-input::after {
+.search-input-wrapper {
+    position: relative;
+    margin-bottom: 2.437rem;
+}
+.search-input-wrapper::after {
     display: block;
     content: '';
     background-image: url('../assets/search-icon.svg');
@@ -159,75 +171,13 @@ select {
 .shop-by-dropdown {
     margin-bottom: 1rem;
 }
-
-input[type='checkbox'].toggle {
-    opacity: 0;
-    position: absolute;
-    left: -9000px;
-    /* top: -9000px; */
+.on-sale-wrapper {
+    margin-top: 2.625rem;
+    margin-bottom: 2.625rem;
 }
-
-input[type='checkbox'].toggle + label {
-    position: relative;
+.toggle-button-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    cursor: pointer;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 27px;
 }
-
-input[type='checkbox'].toggle + label::after {
-    content: '';
-    width: 2em;
-    height: 1em;
-    background-color: hsl(0, 80%, 90%);
-    border-radius: 1em;
-    margin-right: 0.25em;
-    transition: background-color 200ms ease-in-out;
-}
-
-/* input[type='checkbox'].toggle + label::before {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    content: '\2715';
-    font-size: 0.5em;
-    height: 0.9em;
-    left: 0.2em;
-    width: 1.8em;
-    height: 1.8em;
-    background-color: hsl(0, 80%, 60%);
-    color: white;
-    border-radius: 1em;
-    transition: background-color 200ms ease-in-out, transform 200ms ease-in-out;
-} */
-
-/* input[type='checkbox'].toggle:focus + label::before {
-    outline: 1px solid black;
-} */
-
-/* input[type='checkbox'].toggle:checked + label::before {
-    background-color: hsl(100, 70%, 90%);
-} */
-
-/* input[type='checkbox'].toggle:checked + label::before {
-    content: '\2713';
-    transform: translateX(100%);
-    background-color: hsl(100, 70%, 60%);
-} */
-
-/* input[type='checkbox'].toggle:disabled + label {
-    color: #777;
-} */
-
-/* input[type='checkbox'].toggle:disabled + label::before {
-    background-color: #ccc;
-}
-
-input[type='checkbox'].toggle:disabled + label::after {
-    background-color: #777;
-} */
 </style>
