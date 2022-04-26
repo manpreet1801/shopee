@@ -1,16 +1,19 @@
 <template>
   <div id="app">
-    <shopee/>
+    <!-- <shopee/> -->
+    <productDetais msg='Prerana Here'/>
   </div>
 </template>
 
 <script>
-import shopee from './components/shopee.vue'
+// import shopee from './components/shopee.vue'
+import productDetais from './components/productDetails/productDetails.vue'
 
 export default {
   name: 'App',
   components: {
-    shopee
+    // shopee,
+    productDetais
   }
 }
 </script>
@@ -22,6 +25,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 </style>
