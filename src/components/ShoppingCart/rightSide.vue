@@ -1,5 +1,43 @@
 <template>
-  <div></div>
+  <div>
+    <h4 class="header">Cart Totals</h4>
+    <div class="sub-total">
+      <label class="subtotal">SUBTOTAL</label>
+      <label class="subtotal subTotal">$65.00</label>
+    </div>
+    <div class="flex-property shipping">
+      <label class="subtotal">SHIPPING</label>
+      <div class="values">
+        <label class="flex-property subtotalValue shippingValue"
+          >shipping cost will be calculated<br />once you have provided address.
+        </label>
+        <div class="flex-property calculate"><h6>CALCULATE SHIPPING</h6></div>
+        <div class="coupon">
+          <label class="couponlabel" for="couponcode">SELECT COUNTRY</label>
+          <input type="text" />
+        </div>
+        <div class="coupon">
+          <label class="couponlabel" for="couponcode">CITY</label>
+          <input type="text" />
+        </div>
+        <div class="coupon">
+          <label class="couponlabel" for="couponcode">POSTAL CODE/ZIP</label>
+          <input type="text" />
+        </div>
+        <div class="updateBtn">
+          <button class="update">UPDATE TOTALS</button>
+        </div>
+      </div>
+    </div>
+    <hr class="divider" />
+    <div class="flex-property totalValues">
+      <label class="total" for="">TOTAL</label>
+      <label class="flex-property totalAmt" for="">$87.00</label>
+    </div>
+    <div class="proceedBtn">
+      <button class="checkout">PROCEED TO CHECKOUT</button>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -13,84 +51,107 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.container {
-  /* display: flex; */
-  height: 100%;
-  width: 50%;
+.subtotal {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 27px;
+  padding-left: 1.5rem;
+}
+.coupon input {
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid #d8d8d8;
+}
+.couponlabel {
+  display: flex;
+  font-size: 12px;
+  color: #707070;
+}
+h4 {
+  display: flex;
+  color: #000000;
 }
 .header {
-  color: #000000;
-  font-family: "DM Sans";
-  font-style: normal;
+  padding-left: 1rem;
 }
-.details {
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
-  margin-bottom: auto;
-  /* margin: auto; */
-  width: max-content;
-  padding-left: 16px;
-  font-family: "DM Sans";
-  font-style: normal;
-}
-.price {
-  padding-top: 8px;
-}
-.img {
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: auto;
-  margin-bottom: auto;
-  padding-right: 16px;
-}
-.sub-container {
+
+.sub-total {
   display: flex;
-  padding-bottom: 10px;
-  padding-top: 10px;
 }
-.split {
-  height: 100%;
-  width: 50%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
+.subtotal {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 27px;
 }
-.item-name {
+.subTotal {
+  padding-left: 4.8rem;
+}
+
+.flex-property {
   display: flex;
-  font-weight: bold;
-  margin-bottom: 0.9rem;
 }
-.size {
-  margin-left: 0;
+.values {
+  padding-left: 4.8rem;
 }
-.price {
-  display: flex;
-  color: #a18a68;
-}
-.logo {
-  height: 100px;
-  width: 100px;
-}
-/* .mainBtn{
-    margin-left: 160px;
-} */
-.btn {
+.coupon input {
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
   border: none;
-  padding-top: 2px;
-  margin: 4px;
-  padding-bottom: 2px;
+  border-bottom: 1px solid #d8d8d8;
 }
-.quantity {
-  padding-left: 8.4rem;
+.coupon {
+  padding-bottom: 12px;
 }
-.delete {
-  padding-left: 2rem;
+.couponlabel {
+  display: flex;
+  font-size: 9px;
+  color: #707070;
 }
-.cross-sign {
-  height: 12px;
-  width: 11.82px;
+.update {
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background: #ffffff;
+  font-size: 10px;
+  padding: 8px;
+  width: 100%;
+}
+.subtotalValue {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 27px;
+  color: #707070;
+}
+.totalAmt {
+  padding-left: 11.8rem;
+  font-weight: bold;
+}
+.total {
+  font-weight: bold;
+}
+.totalValues {
+  padding-top: 4px;
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+.divider {
+  margin-left: 4rem;
+  margin-right: 3rem;
+}
+.checkout {
+  background: #000000;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 4px;
+  color: #ffffff;
+  padding: 8px;
+  font-size: 9px;
+  width: 300px;
+}
+.proceedBtn {
+  padding-top: 16px;
 }
 </style>

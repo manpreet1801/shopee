@@ -27,7 +27,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.right{
+.right {
   right: 0;
 }
 .left {
@@ -42,23 +42,18 @@ export default {
   z-index: 1;
   overflow-x: hidden;
   padding-top: 20px;
-  padding-left: 40px;
+  padding-left: 9.6rem;
 }
 .header {
   color: #000000;
-  font-family: "DM Sans";
-  font-style: normal;
 }
 .details {
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
   margin-bottom: auto;
-  /* margin: auto; */
-  width: max-content;
+   width: max-content;
   padding-left: 16px;
-  font-family: "DM Sans";
-  font-style: normal;
 }
 .price {
   padding-top: 8px;
@@ -100,9 +95,6 @@ export default {
   height: 100px;
   width: 100px;
 }
-/* .mainBtn{
-    margin-left: 160px;
-} */
 .btn {
   border: none;
   padding-top: 2px;

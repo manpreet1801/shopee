@@ -22,7 +22,7 @@
         <img class="cross-sign" src="../../assets/Vector.png" alt="" />
       </div>
     </div>
-    <hr class="border-style"/>
+    <hr class="border-style" />
     <div class="sub-container">
       <div class="img">
         <img class="logo" src="../../assets/Img 02.png" alt="" />
@@ -95,19 +95,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.container {
-  /* display: flex; */
-  height: 100%;
-  width: 50%;
-}
-.border-style{
-    color: #D8D8D8;
+.border-style {
+  color: #d8d8d8;
 }
 .header {
   color: #000000;
-  font-family: "DM Sans";
-  font-style: normal;
-}
+ }
 .details {
   margin-left: 0;
   margin-right: 0;
@@ -116,9 +109,7 @@ export default {
   /* margin: auto; */
   width: max-content;
   padding-left: 16px;
-  font-family: "DM Sans";
-  font-style: normal;
-}
+ }
 .price {
   padding-top: 8px;
 }
@@ -133,6 +124,7 @@ export default {
   display: flex;
   padding-bottom: 10px;
   padding-top: 10px;
+ 
 }
 .item-name {
   display: flex;
@@ -147,7 +139,7 @@ export default {
   color: #a18a68;
 }
 .logo {
-  height:80;
+  height: 80;
   width: 80px;
 }
 
@@ -171,6 +163,8 @@ export default {
   display: flex;
   flex-direction: row-reverse;
   padding-bottom: 2rem;
+  padding-top: 8px;
+  padding-right: 2.5rem;
 }
 .update-btn {
   margin-left: 6px;
@@ -179,6 +173,7 @@ export default {
   border: 1px solid #000000;
   box-sizing: border-box;
   border-radius: 4px;
+  background: #ffff;
 }
 .applyCouponBtn {
   font-size: 10px;
